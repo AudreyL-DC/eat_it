@@ -1,13 +1,16 @@
-$orange: #D54414;
+// Colors
+$orange: #cccccc;
 $blue: #278BBF;
 $white: #fff;
 $primary: $orange;
 $secondary: $blue;
+// Fonts
 $font-family-base: 'Titillium Web',
 "Helvetica Neue",
 Helvetica,
 Arial,
 sans-serif;
+// Navbar
 $navbar-toggler-font-size: 1.75rem;
 $navbar-light-color: $primary;
 $navbar-light-hover-color: $primary;

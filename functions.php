@@ -4,10 +4,13 @@
  * Theme assets
  */
 add_action('wp_enqueue_scripts', function () {
-  wp_enqueue_style('google_fonts', '//fonts.googleapis.com/css?family=Titillium+Web:400,700&display=swap', false, null);
+  wp_enqueue_style('google_fonts', '//fonts.googleapis.com/css2?family=Archivo+Black&family=Roboto:wght@400;700&display=swap', false, null);
   wp_enqueue_style('icone_fonts', '//cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css', false, null);
   wp_enqueue_style('startheme-styles', get_template_directory_uri() . '/dist/css/main.css', false, null);
+  wp_enqueue_script('jquery', get_template_directory_uri() . '/dist/js/jquery.min.js');
+  wp_enqueue_script('bootstrap', get_template_directory_uri() . '/dist/js/bootstrap.min.js', ['jquery'], null, true);
   wp_enqueue_script('startheme-scripts', get_template_directory_uri() . '/dist/js/main.js', ['jquery'], null, true);
+
 }, 100);
 
 
@@ -37,8 +40,8 @@ add_action('after_setup_theme', function () {
   );
 
   // Custom Image sizes
-  add_image_size('thumb-medium', 350, 250, true);
-  add_image_size('thumb-large', 550, 1100, false);
+  add_image_size('thumb-medium', 555, 410, true);
+  add_image_size('thumb-large', 1920, 1080, false);
 });
 
 /**

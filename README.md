@@ -41,5 +41,5 @@ root/                   # → Root of startheme theme
 ### Build commands
 
 * `npm start` — Compile assets when file changes are made, start Browsersync session
-* `npm build` — Compile and optimize the files in your assets directory for production
+* `npm run build` — Compile and optimize the files in your assets directory for production
 * `npm run pot` — Create languages/startheme.pot file

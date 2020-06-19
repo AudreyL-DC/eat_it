@@ -1,0 +1,49 @@
+.owl-stage {
+    display: flex;
+}
+
+.owl-item {
+    display: flex;
+    flex-grow: 1;
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .card-text {
+        font-size: 0.875rem;
+    }
+    .more-link {
+        margin-top: auto;
+    }
+}
+
+.owl-carousel .owl-nav {
+    button {
+        position: absolute;
+        top: 10%;
+        outline: none;
+        &.owl-prev,
+        &.owl-next {
+            font-size: 0;
+            display: inline-block;
+            font-family: ForkAwesome;
+            color: $primary;
+            &::before {
+                font-size: 3rem;
+            }
+        }
+        &.owl-prev {
+            left: -0.5rem;
+            &::before {
+                content: '\f104';
+            }
+        }
+        &.owl-next {
+            right: -0.5rem;
+            &::before {
+                content: '\f105';
+            }
+        }
+    }
+}

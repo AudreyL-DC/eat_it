@@ -1,0 +1,17 @@
+.restaurant-content {
+    font-size: 1.375em;
+}
+
+.restaurant-note {
+    h3::after {
+        content: none;
+    }
+}
+
+.etoile .level {
+    margin: 0 0.25rem;
+    &.over-level {
+        filter: grayscale(1);
+        opacity: 0.5;
+    }
+}

@@ -19,6 +19,7 @@
 <body <?php body_class(); ?>>
 
   <nav class="navbar navbar-expand-md navbar-light bg-white sticky-top main-navbar">
+<!-- navigation principale -->
 
     <div class="container">
 
@@ -40,7 +41,11 @@
           'menu_class'      => 'navbar-nav main-menu',
           'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
           'walker'          => new WP_Bootstrap_Navwalker(),
+          'depth' => 2
         ) );
+        
+        get_search_form();
+
         ?>
       </div>
 

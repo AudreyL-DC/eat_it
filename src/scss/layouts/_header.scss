@@ -1,3 +1,10 @@
-.navbar-brand img {
-  width: 150px;
+.navbar-brand .img {
+    width: 50px;
+}
+
+.home .main-header {
+    background: url(../images/bg_header.jpg) top center no-repeat;
+    background-size: cover;
+    min-height: calc(100vh - 90px);
+    text-align: center;
 }

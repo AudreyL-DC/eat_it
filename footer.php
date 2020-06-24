@@ -9,7 +9,7 @@
  */
 ?>
 
-<footer class="page-footer py-4">
+<footer class="page-footer bg-dark text-white py-4">
 
   <div class="container">
 

@@ -31,7 +31,7 @@ $lastposts = get_posts( array(
 <!-- Le flex permet d'aligner le titre et le bouton (Autres restaurants) sur la même ligne. Le get_post_archive_link + nom de la catégorie = récupère l'url de la page archive (restaurant). En cliquant sur "tous les restaurants" on arrivera sur la page. -->
 
 
-  <div class="row no-gutters">
+  <div class="row px-sm-4 mt-5 mt-sm-4">
 
 <?php 
 if ( $lastposts ) : 
@@ -41,6 +41,7 @@ if ( $lastposts ) :
     <div class="col-md-6 col-lg-4">
 
       <?php get_template_part( 'template-parts/content-archive', get_post_type() ); ?>
+      <!-- Va chercher le contennu de la page content-archive. Affiche les restaurants -->
 
     </div>
 

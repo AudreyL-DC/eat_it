@@ -43,7 +43,7 @@ get_header();
     echo $output;
 endif; ?>
 
-<!-- Affiche les différentes spécialités -->
+<!-- Affiche les différentes spécialités dans un menu déroulant. -->
 
 
 

@@ -23,7 +23,6 @@ get_header();
 <main>
 
 
-
   <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
     <?php get_template_part( 'template-parts/content', get_post_type() ); ?>
@@ -99,13 +98,13 @@ get_header();
     ?>
     <!-- Ici grâce à la loop, ça nous permet d'afficher sur la page d'accueil, le contenu de la page restaurant (la variable a été défini plus haut: je veux trois restaurants affichés et je les affiche randomly) -->
 
-</div> <!-- Fermeture restaurant-spot-grid -->
+</div> <!-- Fermeture front-restaurant-grid -->
 
 <div class="text-center my-5">
 <a href="<?= get_post_type_archive_link('restaurant'); ?>" class="btn btn-outline-primary"><?php _e('Tous les restaurants', 'startheme'); ?></a>
 <!-- Ce bouton nous amène vers la page restaurant (archive_link) -->
 
 </div>
-</section> <!-- Fin restaurant spot -->
+</section> <!-- Fin front-restaurant -->
 
 <?php get_footer() ?>

@@ -2,7 +2,7 @@
 <?php
 
 /**
- * Template part for displaying spot content in single spots
+ * Template part for displaying restaurant content in single restaurants
  *
  *
  * @package WordPress
@@ -14,15 +14,14 @@ $infos = get_field_object ('horaires_douverture');
 /* On doit créer une variable et on lui demande d'aller récupérer tout ce qu'il peut sur le champ information. get_field_object est spécifique à ACF. On va récupérer le titre du champ et le contenu*/
 $adress = get_field_object('adresse');
 $notes = get_field_object('notes');
-$menu1 = get_field_object('menu_1');
-$menu2 = get_field_object('menu_2');
-
-
+$menus = get_posts(array(
+    'post_type' => 'plat',
+));
 
 ?>
 
 <pre>
-<?php  var_dump($notes); ?>
+<?php  // var_dump($prix); ?>
 </pre>
 
 <!-- Permet de voir le contenu de cette variable et ainsi voir les informations qu'il va récupérer. On va utiliser les noms entre crochets pour appeler la variable et afficher les infos que nous avons besoin -->
@@ -30,7 +29,7 @@ $menu2 = get_field_object('menu_2');
 <article <?php post_class(); ?>>
 
     <header class="entry-header main-header py-5" style="background-image: url(<?php the_post_thumbnail_url(); ?>);">
-        <!-- Permet de générer en image background l'image mise en avant -->
+        <!-- Permet de générer en image background l'image mise en avant (thumbnail) -->
 
         <div class="container">
       
@@ -61,11 +60,12 @@ $menu2 = get_field_object('menu_2');
                     else $img_class = 'over-level'; 
                     ?> 
 
-<!-- On va faire une boucle dans le tableau "notes" puis on compare les valeurs  -->
+<!-- On va faire une boucle dans le tableau "notes" on va récupérer le label qui permettra d'afficher le mot "Note". Ce tableau a été créé en ACF avec différentes options (choix) puis on va le comparer avec "choix" dans le tableau. Cette boucle permet d'attribuer le nombre d'étoiles pour chaque restaurant.-->
 
                     <img src="<?= get_template_directory_uri(); ?>/dist/images/notation.svg" alt="<?= $choice ?>" title="<?= $choice ?>" class="etoile <?= $img_class ?>">
                  <?php endforeach; ?>
 
+                 <!-- On va chercher l'image d'étoile dans notre dossier. -->
 
                 </div>
 
@@ -76,7 +76,7 @@ $menu2 = get_field_object('menu_2');
     </div><!-- .restaurant-content -->
 
   <div class="restaurant-acf container">
-              <!-- On va faire apparaître les infos extra (horaires, adresse, notes) mises dans ACF (WP) -->
+              <!-- On va faire apparaître les infos extra (horaires, adresse, notes) mises dans ACF (WP) pour les afficher sur chaque restaurant individuel. -->
 
         <div class="restaurant-infos my-5">
     
@@ -92,15 +92,32 @@ $menu2 = get_field_object('menu_2');
 
         </div> <!-- restaurant-adresse -->
 
-        <div class="restaurant-menus my-5">
+        <div class="restaurants-menu my-5">
 
-            <h2><?= $menu1['label']; ?></h2> <!-- On récupère le label et l'adresse dans ACF -->
-            <?= $menu1['value']; ?>
+<!-- affichange des plats -->  
+                    <?php if( $menus ): ?>
+							<ul>
+							<?php foreach( $menus as $menu): ?>
+								
+								<li>
+                                        <?php echo get_the_title( $menu->ID ); ?>
+                                        <?php echo get_the_content( null, false,$menu->ID ); ?>
+                                       
+                                        <!-- Grâce au get_the_title et get_the_content, on affiche le contenu des menus sur la page individuelle restaurant. $menu va chercher la variable créée plus haut et qui lui dit d'aller chercher le contenu du CPT UI plat créé dans WP. La fonction echo permet d'afficher le contenu sur la page.-->
+                                </li>
+                                <a href="class="btn btn-outline-primary><?php _e('Commander', 'startheme'); ?></a>
+                           
 
-            <h2><?= $menu2['label']; ?></h2> <!-- On récupère le label et l'adresse dans ACF -->
-            <?= $menu2['value']; ?>
 
-        </div> <!-- .restaurant-menus -->
+
+							<?php endforeach; ?>
+							</ul>
+                        <?php endif; ?>
+                        
+
+
+
+        </div>
 
     </div><!-- .restaurant-acf -->
 
